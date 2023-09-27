@@ -2,9 +2,9 @@
 
 **English** | [Français](#serveur-maison-🏡🖥️)
 
-This repository contains information on setting up a homemade server using components purchased from AliExpress and other websites. The server will be configured for virtualization using Proxmox, web hosting 🌐, a VPN server 🔒, and a file server 📁.
+This repository contains information on setting up a homemade server using a repurposed NUC or any PC with a similar configuration. The server will be configured with Debian for virtualization, web hosting 🌐, a VPN server 🔒, and a file server 📁.
 
-Ce référentiel contient des informations sur la création d'un serveur fait maison en utilisant des composants achetés sur AliExpress et d'autres sites. Le serveur sera configuré pour la virtualisation à l'aide de Proxmox, l'hébergement web 🌐, un serveur VPN 🔒 et un serveur de fichiers 📁.
+Ce référentiel contient des informations sur la création d'un serveur fait maison en utilisant un NUC recyclé ou tout PC ayant une configuration similaire. Le serveur sera configuré avec Debian pour la virtualisation, l'hébergement web 🌐, un serveur VPN 🔒 et un serveur de fichiers 📁.
 
 ## Table of Contents / Table des matières 📚
 
@@ -18,35 +18,41 @@ Ce référentiel contient des informations sur la création d'un serveur fait ma
 
 ## Prerequisites / Prérequis ⚙️
 
-Before you begin, make sure you have the necessary knowledge in computer hardware, virtualization, Linux systems, and networking.
+Before you begin, make sure you have the necessary knowledge in computer hardware, virtualization, Debian Linux systems, and networking.
 
-Avant de commencer, assurez-vous d'avoir les connaissances minimale en matière de matériel informatique, de virtualisation, de systèmes Linux et de réseaux.
+Avant de commencer, assurez-vous d'avoir les connaissances minimales en matière de matériel informatique, de virtualisation, de systèmes Linux Debian et de réseaux.
 
 ## Hardware / Matériel 💻
 
-- List of components purchased from AliExpress and other websites.
+- Repurposed NUC or any PC with a similar configuration.
 - Server specifications details (CPU, RAM, storage, etc.).
+  - CPU: Specify your CPU details.
+  - RAM: Specify your RAM size.
+  - Storage: 256 GB or 128 GB (Choose the appropriate size for your needs).
 
-Liste des composants achetés sur AliExpress et d'autres sites.
+NUC recyclé ou tout PC avec une configuration similaire.
 Détails sur les spécifications du serveur (processeur, RAM, stockage, etc.).
+  - Processeur : Spécifiez les détails de votre CPU.
+  - RAM : Spécifiez la taille de votre RAM.
+  - Stockage : 256 Go ou 128 Go (Choisissez la taille appropriée en fonction de vos besoins).
 
 ## Installation / Installation 🛠️
 
-Explain step-by-step how to assemble the server using the purchased components. Include photos, diagrams, or videos if necessary. You can also provide links to assembly guides if available.
+Explain step-by-step how to set up the server using the repurposed NUC or PC. Include photos, diagrams, or videos if necessary. You can also provide links to installation guides if available.
 
-Expliquez étape par étape comment assembler le serveur en utilisant les composants achetés. Assurez-vous d'inclure des photos, des schémas ou des vidéos si nécessaire. Vous pouvez également fournir des liens vers les guides d'assemblage si disponibles.
+Expliquez étape par étape comment configurer le serveur en utilisant le NUC recyclé ou le PC. Assurez-vous d'inclure des photos, des schémas ou des vidéos si nécessaire. Vous pouvez également fournir des liens vers des guides d'installation si disponibles.
 
 ## Configuration / Configuration 🧰
 
-Describe how to install and configure Proxmox for virtualization, a Linux operating system for web hosting 🌐, a VPN server 🔒, and a file server 📁. Include configuration examples where possible.
+Describe how to install and configure Debian for virtualization, a Linux operating system for web hosting 🌐, a VPN server 🔒, and a file server 📁. Include configuration examples where possible.
 
-Décrivez comment installer et configurer Proxmox pour la virtualisation, un système d'exploitation Linux pour l'hébergement web 🌐, un serveur VPN 🔒 et un serveur de fichiers 📁. Incluez des exemples de configuration si possible.
+Décrivez comment installer et configurer Debian pour la virtualisation, un système d'exploitation Linux pour l'hébergement web 🌐, un serveur VPN 🔒 et un serveur de fichiers 📁. Incluez des exemples de configuration si possible.
 
 ## Usage / Utilisation 🚀
 
-Explain how to use each component of the server, including deploying virtual machines with Proxmox, managing the website 🌐, connecting to the VPN server 🔒, and accessing the file server 📁.
+Explain how to use each component of the server, including deploying virtual machines on Debian, managing the website 🌐, connecting to the VPN server 🔒, and accessing the file server 📁.
 
-Expliquez comment utiliser chaque composant du serveur, y compris comment déployer des machines virtuelles avec Proxmox, comment gérer le site web 🌐, comment se connecter au serveur VPN 🔒 et comment accéder au serveur de fichiers 📁.
+Expliquez comment utiliser chaque composant du serveur, y compris comment déployer des machines virtuelles sur Debian, comment gérer le site web 🌐, comment se connecter au serveur VPN 🔒 et comment accéder au serveur de fichiers 📁.
 
 ## Contributions / Contributions 🤝
 
