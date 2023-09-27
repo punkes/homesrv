@@ -24,7 +24,7 @@ Avant de commencer, assurez-vous d'avoir les connaissances minimales en matière
 
 ## Hardware / Matériel 💻
 
-    [📄 Hardware Specifications](./specs/hardware-specs.md)
+[📄 Hardware Specifications]([https://github.com/votreutilisateur/votredépôt/blob/master/specs/hardware-specs.md](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/hardware_specs.md)
 
 ## Installation / Installation 🛠️
 
