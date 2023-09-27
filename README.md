@@ -24,17 +24,7 @@ Avant de commencer, assurez-vous d'avoir les connaissances minimales en matière
 
 ## Hardware / Matériel 💻
 
-- Repurposed NUC or any PC with a similar configuration.
-- Server specifications details (CPU, RAM, storage, etc.).
-  - CPU: Specify your CPU details.
-  - RAM: Specify your RAM size.
-  - Storage: 256 GB or 128 GB (Choose the appropriate size for your needs).
-
-NUC recyclé ou tout PC avec une configuration similaire.
-Détails sur les spécifications du serveur (processeur, RAM, stockage, etc.).
-  - Processeur : Spécifiez les détails de votre CPU.
-  - RAM : Spécifiez la taille de votre RAM.
-  - Stockage : 256 Go ou 128 Go (Choisissez la taille appropriée en fonction de vos besoins).
+    [📄 Hardware Specifications](./specs/hardware-specs.md)
 
 ## Installation / Installation 🛠️
 
