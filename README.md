@@ -28,16 +28,13 @@ Avant de commencer, assurez-vous d'avoir les connaissances minimales en matière
 
 ## Installation / Installation 🛠️
 
-Explain step-by-step how to set up the server using the repurposed NUC or PC. Include photos, diagrams, or videos if necessary. You can also provide links to installation guides if available.
-
-Expliquez étape par étape comment configurer le serveur en utilisant le NUC recyclé ou le PC. Assurez-vous d'inclure des photos, des schémas ou des vidéos si nécessaire. Vous pouvez également fournir des liens vers des guides d'installation si disponibles.
-
+il faut installer un debain en version 12 et supérieure. Puis le mettre à jour.
 ## Configuration / Configuration 🧰
 
-Describe how to install and configure Debian for virtualization, a Linux operating system for web hosting 🌐, a VPN server 🔒, and a file server 📁. Include configuration examples where possible.
-
-Décrivez comment installer et configurer Debian pour la virtualisation, un système d'exploitation Linux pour l'hébergement web 🌐, un serveur VPN 🔒 et un serveur de fichiers 📁. Incluez des exemples de configuration si possible.
-
+Telecharger le script install.sh
+et lancer cest commandes 
+- Make it executable with: chmod +x yourscript.sh
+# - Execute with sudo privileges: sudo ./yourscript.sh
 ## Usage / Utilisation 🚀
 
 Explain how to use each component of the server, including deploying virtual machines on Debian, managing the website 🌐, connecting to the VPN server 🔒, and accessing the file server 📁.
