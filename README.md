@@ -1,6 +1,6 @@
 # DIY Home Server 🏡🖥️
 
-**English** | [Français](#serveur-maison-🏡🖥️)
+**English** | [Français](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/README.md#table-des-mati%C3%A8res-)
 
 This repository contains information on setting up a homemade server using a repurposed NUC or any PC with a similar configuration. The server will be configured with Debian for virtualization, web hosting 🌐, a VPN server 🔒, and a file server 📁.
 
