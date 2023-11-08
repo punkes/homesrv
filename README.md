@@ -6,13 +6,13 @@ This repository contains information on setting up a homemade server using a rep
 
 ## Table of Contents 📚
 
-1. [Prerequisites / Prérequis](#prerequisites--prérequis) ⚙️
-2. [Hardware / Matériel](#hardware--matériel) 💻
-3. [Installation / Installation](#installation--installation) 🛠️
-4. [Configuration / Configuration](#configuration--configuration) 🧰
-5. [Usage / Utilisation](#usage--utilisation) 🚀
-6. [Contributions / Contributions](#contributions--contributions) 🤝
-7. [License / Licence](#license--licence) 📝
+1. [Prerequisites](#prerequisites) ⚙️
+2. [Hardware](#hardware) 💻
+3. [Installation](#installation) 🛠️
+4. [Configuration](#configuration) 🧰
+5. [Usage ](#usage) 🚀
+6. [Contributions](#contributions) 🤝
+7. [License](#license) 📝
 
 ## Prerequisites ⚙️
 
