@@ -1,11 +1,11 @@
-Voici votre texte Markdown avec des icônes ajoutées pour chaque section :
+Voici le texte Markdown sans les icônes et avec toutes les parties anglaises suivies de toutes les parties françaises :
 
 ### Download Proxmox:
-1. Visit the Proxmox download page: [![Proxmox Download](https://img.icons8.com/color/48/000000/download.png)](https://www.proxmox.com/de/downloads/proxmox-virtual-environment/iso/proxmox-ve-8-0-iso-installer)
+1. Visit the Proxmox download page at [Proxmox Download](https://www.proxmox.com/de/downloads/proxmox-virtual-environment/iso/proxmox-ve-8-0-iso-installer).
 2. Téléchargez l'ISO de Proxmox en cliquant sur le lien de téléchargement approprié pour la version 8.0.
 
 ### Download Rufus:
-1. Visit the Rufus download page: [![Rufus Download](https://img.icons8.com/color/48/000000/download.png)](https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3.exe)
+1. Visit the Rufus download page at [Rufus Download](https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3.exe).
 2. Téléchargez le logiciel Rufus en cliquant sur le lien de téléchargement.
 
 ### Create a Bootable USB Drive:
@@ -32,4 +32,4 @@ Voici votre texte Markdown avec des icônes ajoutées pour chaque section :
 
 5. Complete the installation process by following the prompts.
 
-Une fois Proxmox is installed, you can access it through a web browser and start configuring your virtual machines.
+Une fois Proxmox est installé, vous pouvez y accéder via un navigateur web et commencer à configurer vos machines virtuelles.
