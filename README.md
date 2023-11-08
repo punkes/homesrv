@@ -6,7 +6,7 @@ This repository contains information on setting up a homemade server using a rep
 
 ## Table of Contents 📚
 
-1. [Prerequisites](#prerequisites) ⚙️
+1. [Prerequisites](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/README.md#prerequisites-%EF%B8%8F) ⚙️
 2. [Hardware](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/README.md#hardware-) 💻
 3. [Installation](#installation) 🛠️
 4. [Configuration](#configuration) 🧰
