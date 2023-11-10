@@ -1,57 +1,5 @@
 # DIY Home Server 🏡🖥️
 
-**English** | [Français](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/README.md#table-des-mati%C3%A8res-)
-
-This repository contains information on setting up a homemade server using a repurposed NUC or any PC with a similar configuration. The server will be configured with Debian for virtualization, web hosting 🌐, a VPN server 🔒, and a file server 📁.
-
-## Table of Contents 📚
-
-1. [Prerequisites](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/README.md#prerequisites-%EF%B8%8F) ⚙️
-2. [Hardware](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/README.md#hardware-) 💻
-3. [Installation](#installation) 🛠️
-4. [Configuration](#configuration) 🧰
-5. [Usage ](#usage) 🚀
-6. [Contributions](#contributions) 🤝
-7. [License](#license) 📝
-
-## Prerequisites ⚙️
-
-Before you begin, make sure you have the necessary knowledge in computer hardware, virtualization, Debian Linux systems, and networking.
-
-## Hardware 💻
-
-  [📄 Hardware Specifications]([https://github.com/votreutilisateur/votredépôt/blob/master/specs/hardware-specs.md](https://github.com/TheGostOfNight/DIY_Home_Server/blob/main/hardware_specs.md))
-
-## Installation 🛠️
-
-il faut installer un debain en version 12 et supérieure. Puis le mettre à jour.
-## Configuration 🧰
-
-Telecharger le script install.sh
-et lancer cest commandes 
-- Make it executable with: chmod +x yourscript.sh
-# - Execute with sudo privileges: sudo ./yourscript.sh
-## Usage 🚀
-
-Explain how to use each component of the server, including deploying virtual machines on Debian, managing the website 🌐, connecting to the VPN server 🔒, and accessing the file server 📁.
-
-## Contributions 🤝
-
-Contributions to this project are welcome. If you'd like to contribute, follow these steps:
-1. Clone the repository.
-2. Create a new branch for your contribution.
-3. Make your changes and test them.
-4. Submit a pull request with a detailed description of your modifications.
-
-## License 📝
-
-This project is licensed under the [GNU General Public License]. See the LICENSE file for more details.
-
-
----
----
-[English](#serveur-maison-🏡🖥️) | **Français**
-
 Ce référentiel contient des informations sur la création d'un serveur fait maison en utilisant un NUC recyclé ou tout PC ayant une configuration similaire. Le serveur sera configuré avec Debian pour la virtualisation, l'hébergement web 🌐, un serveur VPN 🔒 et un serveur de fichiers 📁.
 
 ## Table des matières 📚
@@ -74,13 +22,78 @@ Avant de commencer, assurez-vous d'avoir les connaissances minimales en matière
 
 ## Installation 🛠️
 
-il faut installer un debain en version 12 et supérieure. Puis le mettre à jour.
-## Configuration 🧰
+### Télécharger Proxmox :
+1. Visitez la page de téléchargement de [Proxmox](https://www.proxmox.com/de/downloads/proxmox-virtual-environment/iso/proxmox-ve-8-0-iso-installer) et télécharger la version 8.0 ou ultérieur.
 
-Telecharger le script install.sh
-et lancer cest commandes 
-- Make it executable with: chmod +x yourscript.sh
-# - Execute with sudo privileges: sudo ./yourscript.sh
+### Télécharger Rufus :
+1. Visitez la page de téléchargement de [Rufus](https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3.exe).
+
+### Créer une clé USB bootable :
+1. Insérez une clé USB (8 Go ou plus) dans votre ordinateur.
+
+2. Lancez Rufus (précédemment téléchargé).
+
+3. Dans Rufus, sous "Périphérique," sélectionnez votre clé USB.
+
+4. Sous "Type de démarrage," cliquez sur le bouton "Sélection" et choisissez l'ISO de Proxmox que vous avez téléchargé précédament.
+
+5. Cliquez sur "Démarrer" pour créer la clé USB bootable. Ce processus effacera toutes les données sur la clé USB, alors assurez-vous d'avoir sauvegardé toutes les données importantes.
+
+### Installer Proxmox :
+1. Insérez la clé USB bootable dans l'ordinateur.
+
+2. Démarrez l'ordinateur et assurez-vous qu'il démarre à partir de la clé USB. Vous devrez peut-être modifier l'ordre de démarrage dans les paramètres du BIOS/UEFI.
+
+3. Suivez les instructions à l'écran pour installer Proxmox.
+
+4. Lors de la configuration du réseau, changez le nom d'hôte pour quelque chose comme "homeserver.gost.local."
+
+5. Terminez le processus d'installation en suivant les invites.
+
+Une fois Proxmox installer correctement et l'ordinateur redémarer, vous pouvez passer a l'étape de configuration.
+
+## Configuration 🧰
+1. Une fois que le pc à redémarer le pc devrait afficher son IP.
+2. Sur un autre pc taper l'ip et vous etes connecter à l'interface du proxmox.
+3. Ouvrir le shell du serveur puis taper ces commandes 
+```
+nano /etc/apt/sources.list.d/pve-enterprise.list
+```
+Puis remplacer :
+```
+bookworm
+```
+Par :
+```
+buster
+```
+Au final :
+```
+deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
+```
+Puis :
+```
+nano /etc/apt/sources.list
+```
+Tous supprimer dans le fichier puis coller ça
+```
+deb http://ftp.debian.org/debian bookworm main contrib
+deb http://ftp.debian.org/debian bookworm-updates main contrib
+
+# Proxmox VE pve-no-subscription repository provided by proxmox.com,
+# NOT recommended for production use
+deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
+
+# security updates
+deb http://security.debian.org/debian-security bookworm-security main contrib
+```
+Puis mettre à jour le Proxmox
+```
+apt-get update && apt upgrade
+```
+
+
+
 ## Utilisation 🚀
 
 Expliquez comment utiliser chaque composant du serveur, y compris comment déployer des machines virtuelles sur Debian, comment gérer le site web 🌐, comment se connecter au serveur VPN 🔒 et comment accéder au serveur de fichiers 📁.
