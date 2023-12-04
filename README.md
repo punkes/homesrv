@@ -1,6 +1,6 @@
 # Punkes homesrv
 
-[English](#english) | [French](#french)
+[English](#english) | [Français](#français)
 
 ## English
 
@@ -329,8 +329,6 @@ Contributions to this project are welcome. If you wish to contribute, follow the
 ## License
 
 This project is licensed under the [GNU General Public License]. See the LICENSE file for more details.
-
-[English](#english) | [French](#french)
 
 ## French
 
