@@ -2,7 +2,7 @@
 
 Bienvenue dans le guide complet pour créer votre propre serveur à domicile en utilisant un NUC recyclé ou tout PC ayant une configuration similaire. Ce serveur polyvalent sera configuré avec Debian pour la virtualisation, l'hébergement web 🌐, un serveur VPN 🔒, et un serveur de fichiers 📁.
 
-## Table des matières 📚
+## Table des matièrees 📚
 
 1. [Prérequis](#prérequis) ⚙️
 2. [Matériel](#matériel) 💻
