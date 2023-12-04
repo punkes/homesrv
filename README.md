@@ -330,6 +330,8 @@ Contributions to this project are welcome. If you wish to contribute, follow the
 
 This project is licensed under the [GNU General Public License]. See the LICENSE file for more details.
 
+[English](#english) | [Français](#français)
+
 ## French
 
 Bienvenue dans le guide complet pour créer votre propre serveur à domicile en utilisant un NUC recyclé ou tout PC ayant une configuration similaire. Ce serveur polyvalent sera configuré avec Debian pour la virtualisation, l'hébergement web, un serveur VPN, et un serveur de fichiers.
