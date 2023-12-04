@@ -18,10 +18,10 @@ echo "                                                              __/ |       
 echo "                                                             |___/           "
 
 # Request if user is root
-read -p "Êtes-vous root ? (oui/non) : " is_root
+read -p "Are you a root (yes/no) : " is_root
 
 if [ "$is_root" != "oui" ]; then
-  echo "Ce script doit être exécuté en tant que root."
+  echo "This script must be run as root."
   exit
 fi
 
