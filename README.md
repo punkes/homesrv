@@ -1,10 +1,344 @@
 # Punkes homesrv
 
+[English](#english) | [French](#french)
+
+## English
+
+Welcome to the comprehensive guide for creating your own home server using a recycled NUC or any PC with a similar configuration. This versatile server will be configured with Debian for virtualization, web hosting, a VPN server, and a file server.
+
+## Table of Contents
+
+- [Punkes homesrv](#punkes-homesrv)
+  - [Table of Contents](#table-of-contents)
+  - [Prerequisites](#prerequisites)
+  - [Hardware Specifications](#hardware-specifications)
+  - [Proxmox](#proxmox)
+    - [Proxmox Download](#proxmox-download)
+    - [Rufus Download](#rufus-download)
+    - [Creating a Bootable USB Drive](#creating-a-bootable-usb-drive)
+    - [Proxmox Installation](#proxmox-installation)
+    - [Proxmox Configuration](#proxmox-configuration)
+  - [Creating a Virtual Machine with Debian](#creating-a-virtual-machine-with-debian)
+  - [OwnCloud Server Installation](#owncloud-server-installation)
+    - [OwnCloud Client Installation](#owncloud-client-installation)
+  - [OpenVPN Installation](#openvpn-installation)
+    - [OpenVPN Client Installation](#openvpn-client-installation)
+  - [Contributions](#contributions)
+  - [License](#license)
+
+## Prerequisites
+
+Before getting started, make sure you have basic knowledge of computer hardware, virtualization, Debian Linux systems, and networks.
+
+## Hardware Specifications
+Recommended Minimum Configuration:
+- **Processor (CPU):**
+    - Type: x86_64 (64-bit) Processor
+    - Cores: Quad-core
+    - Frequency: 2.0 GHz or higher
+    - Virtualization Support: Intel VT-x or AMD-V
+
+- **Memory (RAM):**
+    - Capacity: 8 GB
+    - Type: DDR4
+    - Frequency: 2400 MHz or higher
+
+- **Storage:**
+    - Type: SSD
+    - Capacity: 120 GB or more
+
+- **Others:**
+    - USB Port: For installation from a USB drive
+
+## Proxmox
+
+### Proxmox Download
+
+1. Visit the [Proxmox download page](https://www.proxmox.com/de/downloads/proxmox-virtual-environment/iso/proxmox-ve-8-0-iso-installer) and download version 8.0 or later.
+
+### Rufus Download
+
+1. Go to the [Rufus download page](https://github.com/pbatard/rufus/releases/download/v4.3/rufus-4.3.exe).
+
+### Creating a Bootable USB Drive
+
+1. Insert a USB drive (8 GB or more) into your computer.
+2. Launch Rufus (previously downloaded).
+3. In Rufus, under "Device," select your USB drive.
+4. Under "Boot selection," click the "Select" button and choose the Proxmox ISO you downloaded earlier.
+5. Click "Start" to create the bootable USB drive. This process will erase all data on the USB drive, so ensure you have backed up any important data.
+
+### Proxmox Installation
+
+1. Insert the bootable USB drive into the computer.
+2. Start the computer, ensuring it boots from the USB drive. You may need to change the boot order in the BIOS/UEFI settings.
+3. Follow the on-screen instructions to install Proxmox.
+4. During network configuration, change the hostname to something like "homeserver.gost.local."
+5. Complete the installation process following the prompts.
+
+Once Proxmox is successfully installed, and the computer has restarted, you can proceed to the configuration step.
+
+### Proxmox Configuration
+
+1. After the computer restarts, it should display its IP address.
+2. On another computer, enter the IP in the browser to access the Proxmox interface.
+3. Open the server shell and enter these commands:
+
+   ```bash
+   nano /etc/apt/sources.list.d/pve-enterprise.list
+   ```
+
+   **Replace:**
+
+   ```bash
+   bookworm
+   ```
+
+   **With:**
+
+   ```bash
+   buster
+   ```
+
+   **At the end, the file should look like this:**
+
+   ```bash
+   deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
+   ```
+
+   **Then:**
+
+   ```bash
+   nano /etc/apt/sources.list
+   ```
+
+   **Remove everything in the file, then paste this:**
+
+   ```bash
+   deb http://ftp.debian.org/debian bookworm main contrib
+   deb http://ftp.debian.org/debian bookworm-updates main contrib
+
+   # Proxmox VE pve-no-subscription repository provided by proxmox.com,
+   # NOT recommended for production use
+   deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
+
+   # security updates
+   deb http://security.debian.org/debian-security bookworm-security main contrib
+   ```
+
+   **Next, update Proxmox:**
+
+   ```bash
+   apt-get update && apt-get upgrade
+   ```
+
+## Creating a Virtual Machine with Debian
+
+**Step 1: Downloading Debian ISO Image**
+
+1. Visit the official Debian website: [Debian](https://www.debian.org/)
+2. Click on "Download" to access the download page.
+3. Start the download.
+
+**Step 2: Creating a Virtual Machine on Proxmox**
+
+1. Log in to the Proxmox web interface from a computer.
+2. In the left pane, select the node where you want to create the virtual machine.
+3. Click on "Create VM" to create a new virtual machine.
+4. Fill in the required information, such as name, node, OS type (Linux), and version (Debian).
+5. Specify the amount of RAM and storage capacity.
+6. In the "CD/DVD" section, select "ISO Image" and choose the Debian ISO you downloaded.
+7. Click "Create" to create the virtual machine.
+
+**Step 3: Configuring Debian Installation**
+
+1. Select the newly created virtual machine.
+2. Click "Start" to launch the virtual machine.
+3. Click "Console" to access the virtual machine console.
+
+**Step 3: Debian Installation**
+
+1. Follow the Debian installation steps via the console.
+2. Choose the language, timezone, keyboard, and configure the network.
+
+   When you reach the partition section, you can choose to use the entire disk or manually configure partitions according to your needs.
+   
+   When the installation is complete, remove the installation media (ISO image) and restart the virtual machine.
+
+**Step 4: Post-Installation Configuration**
+
+Log in to the virtual machine with the credentials you set during installation.
+1. Update the system with the command:
+   ```bash
+   sudo apt update && sudo apt upgrade
+   ```
+2. Install Proxmox tools by running:
+   ```bash
+   sudo apt install qemu-guest-agent pve-qemu-kvm
+   ```
+3. Restart the virtual machine.
+
+Your Debian virtual machine on Proxmox should now be operational. Don't forget to check the official documentation for specific configurations or advanced features.
+
+## OwnCloud Server Installation
+
+**Step 1: Switch to Root User**
+
+If
+
+ you are not logged in as the "root" user when the VM starts, you can do so by logging out of the VM with the command:
+
+```bash
+exit
+```
+
+**Step 2: Download Files**
+
+Create a temporary folder:
+
+```bash
+mkdir tmp
+```
+
+Then enter it:
+
+```bash
+cd tmp
+```
+
+Clone the repository:
+
+```bash
+git clone https://github.com/punkes/homesrv/blob/main/owncloud-install.sh
+```
+
+**Step 3: Add Execution Permissions to the Script**
+
+```bash
+chmod +x owncloud-install.sh
+```
+
+**Step 4: Run the Script**
+
+```bash
+./owncloud-install.sh
+```
+
+**Step 5: Access the Web Page**
+
+To access the OwnCloud web interface, first find the VM's IP address with the command:
+
+```bash
+ip addr
+```
+
+In a browser, enter the VM's IP address and fill in the requested information.
+
+![Alt text](img/owncloud_config.png)
+
+**Step 6: Make it Accessible Online**
+
+To do this, make the following changes in your internet modem:
+   - Web Port: 80
+   - DynDNS: [no-ip](https://www.noip.com/)
+
+### OwnCloud Client Installation
+
+**Step 1: Download the Software**
+
+[Download here](https://owncloud.com/desktop-app/)
+
+**Step 2: Configure the Software**
+
+If you followed the step to go online, when you need to enter the IP, you should write "http://cloud.noip.com/" or else "http://your_ip/"
+
+![Alt text](img/owncloud_client.png)
+
+Then specify your user and the items to synchronize.
+
+## OpenVPN Installation
+
+**Step 1: Create the VM**
+
+Create a new virtual machine as [here](#prerequisites).
+
+**Step 2: Switch to Root User**
+
+If you are not logged in as the root admin user when the VM starts, you can do so by logging out of the VM with the command:
+
+```bash
+exit
+```
+
+**Step 3: Download Files**
+
+```bash
+curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
+```
+
+**Step 4: Add Execution Permissions to the Script**
+
+```bash
+chmod +x openvpn-install.sh
+```
+
+**Step 5: Run the Script**
+
+Interactive parameter choice mode:
+
+```bash
+./openvpn-install.sh
+```
+
+Automatic installation mode:
+
+```bash
+AUTO_INSTALL=y ./openvpn-install.sh
+```
+
+**Step 6: Make it Accessible Online**
+
+To do this, make the following changes in your internet modem:
+   - OpenVPN Port: 1194
+
+### OpenVPN Client Installation
+
+**Step 1: Download OpenVPN Community**
+
+[Download here](https://openvpn.net/community-downloads/)
+
+**Step 2: Configure OpenVPN Community**
+
+The OpenVPN installation script must have created a configuration file. To easily copy it, you can connect via SSH with this software and retrieve the configuration file at the root of the root user.
+
+[Download here](https://winscp.net/eng/index.php)
+
+Once the file is retrieved, you can place it in the OpenVPN software and connect.
+
+Now, you can connect from anywhere in the world as long as the PC remains on.
+
+## Contributions 
+
+Contributions to this project are welcome. If you wish to contribute, follow these steps:
+
+1. Clone the repository.
+2. Create a new branch for your contribution.
+3. Make your changes and test them.
+4. Submit a pull request with a detailed description of your changes.
+
+## License
+
+This project is licensed under the [GNU General Public License]. See the LICENSE file for more details.
+
+[English](#english) | [French](#french)
+
+## French
+
 Bienvenue dans le guide complet pour créer votre propre serveur à domicile en utilisant un NUC recyclé ou tout PC ayant une configuration similaire. Ce serveur polyvalent sera configuré avec Debian pour la virtualisation, l'hébergement web, un serveur VPN, et un serveur de fichiers.
 
 ## Table des matières
 
-- [DIY Home Server](#diy-home-server)
+- [Punkes homesrv](#punkes-homesrv)
   - [Table des matières](#table-des-matières)
   - [Prérequis](#prérequis)
   - [Spécifications Matérielles](#spécifications-matérielles)
