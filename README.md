@@ -203,7 +203,7 @@ cd tmp
 Clonez le dépôt :
 
 ```bash
-git clone https://github.com/TheGostOfNight/DIY_Home_Server
+git clone https://github.com/TheGostOfNight/homesrv
 ```
 
 **Étape 3 : Ajouter les permissions d'exécution au script**
