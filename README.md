@@ -203,7 +203,7 @@ cd tmp
 Clonez le dépôt :
 
 ```bash
-git clone https://github.com/TheGostOfNight/homesrv
+git clone https://github.com/punkes/homesrv/blob/main/owncloud-install.sh
 ```
 
 **Étape 3 : Ajouter les permissions d'exécution au script**
